@@ -1,7 +1,7 @@
 ## Welcome to zy's GitHub Pages
 
-### [guid to edit github theme](./guid.md)
+### [github style](./guid.md)
 
-### [documents](https://zy13.github.io/docs/)
+### [docs](https://zy13.github.io/docs/)
 
 ### pocket
