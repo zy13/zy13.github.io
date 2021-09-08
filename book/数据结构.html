@@ -9,9 +9,10 @@ html,body{ font-family: "SF UI Display", ".PingFang SC","PingFang SC", "Neue Haa
   color:#222
   -webkit-text-size-adjust:none;  min-width: 200px;
   max-width: 760px;
-  margin: 0 auto; padding: 1rem;
+  padding: 1rem;
   line-height: 1.5rem;
-
+  position: relative;
+  left: 30%;
 }
 h1,h2,h3,h4,h5,h6{font-family: "PT Sans","SF UI Display", ".PingFang SC","PingFang SC", "Neue Haas Grotesk Text Pro", "Arial Nova", "Segoe UI", "Microsoft YaHei", "Microsoft JhengHei", "Helvetica Neue", "Source Han Sans SC", "Noto Sans CJK SC", "Source Han Sans CN", "Noto Sans SC", "Source Han Sans TC", "Noto Sans CJK TC", "Hiragino Sans GB", sans-serif;
 text-rendering:optimizelegibility;margin-bottom:1em;font-weight:bold; line-height: 1.8rem;
@@ -271,9 +272,22 @@ counter-increment: linenumber;
     padding-left: 10px;
     padding-bottom: 10px;
 }
+#muli>ul>li>ul{
+    padding-left: 20px;
+    list-style-type: kannada;
+}
+#muli>ul>li>ul>li>ul{
+    padding-left: 20px;
+    list-style-type: square;
+}
+#muli>ul>li>ul>li>ul>li>ul{
+    padding-left: 10px;
+    list-style-type: square;
+}
 .markdown-body{
-    position: relative;
-    left: 30px;
+    width: 100%;
+    position: absolute;
+    left: -30%;
 }
 .ishow{
     display: none;
@@ -24694,10 +24708,11 @@ console.log(huffman_tree.get_code());
 <script>
     var lis = document.querySelectorAll('#muli>ul>li');
     [...lis].map(li => {
-        li.onclick = function(e) {
-            console.log(li.children[1], e.target.children);
-            li.children[1].classList.toggle('ishow')
-        }
+        li.addEventListener('click', function(e) {
+            if (e.target === e.currentTarget.children[0]) {
+                e.currentTarget.children[1].classList.toggle('ishow')
+            }            
+        })
     })
 </script>
 </html>
