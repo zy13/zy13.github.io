@@ -60519,8 +60519,15 @@ for(var i=0;i&lt;points.length;i++){
 </div>
 <script>
     var lis = document.querySelectorAll('#muli>ul>li');
-    [...lis].map(li => {
+    var arrList = [...lis];
+    arrList.map(li => {
         li.addEventListener('click', function(e) {
+            arrList.forEach((item,index) => {
+                if (index === 0 || index === arrList.length - 1 || item === e.currentTarget) {
+                  return
+                }
+                item.children[1].classList.add('ishow')
+            })
             if (e.target === e.currentTarget.children[0]) {
                 e.currentTarget.children[1].classList.toggle('ishow')
             }            
