@@ -797,7 +797,7 @@ Prism.languages.yaml={scalar:{pattern:/([\-:]\s*(?:![^\s]+)?[ \t]*[|>])[ \t]*(?:
 </ul>
 </li>
 <li>
-<a href="#toc_102">4.3 合并两个两个有序链表(困难模式)</a>
+<a href="#toc_102">4.3 合并两个有序链表(困难模式)</a>
 <ul>
 <li>
 <a href="#toc_103">4.3.1 题目要求</a>
@@ -1578,6 +1578,39 @@ Prism.languages.yaml={scalar:{pattern:/([\-:]\s*(?:![^\s]+)?[ \t]*[|>])[ \t]*(?:
 </li>
 </ul>
 </li>
+<li>
+<a href="#toc_901">1. 栈</a>
+<ul class="ishow">
+    <li><a href="#toc_19">1）合法括号</a></li>
+    <li><a href="#toc_24">2）计算逆波兰表达式</a></li>
+    <li><a href="#toc_29">3）实现一个有min方法的栈</a></li>
+    <li><a href="#toc_31">4）使用栈，完成中序表达式转后续表达式</a></li>
+</ul>
+</li>
+<li>
+<a href="#toc_902">2. 队列</a>
+<ul class="ishow">
+    <li><a href="#toc_52">1）约瑟夫环（普通模式）</a></li>
+    <li><a href="#toc_56">2）斐波那契数列（普通模式）</a></li>
+    <li><a href="#toc_61">3）用队列实现栈（困难模式）</a></li>
+    <li><a href="#toc_65">4）打印杨辉三角（困难模式）</a></li>
+    <li><a href="#toc_70">5）用两个栈实现一个队列（普通模式）</a></li>
+    <li><a href="#toc_73">6）迷宫问题（地狱模式）</a></li>
+</ul>
+</li>
+<li>
+    <a href="#toc_903">3. 链表</a>
+    <ul class="ishow">
+        <li><a href="#toc_94">1）翻转链表（困难模式）</a></li>
+        <li><a href="#toc_98">2）从尾到头打印链表（普通模式）</a></li>
+        <li><a href="#toc_102">3）合并两个有序链表(困难模式)</a></li>
+        <li><a href="#toc_107">4）查找单链表中的倒数第K个节点（k > 0）（普通模式）</a></li>
+        <li><a href="#toc_108">5）查找单链表的中间结点（普通模式）</a></li>
+        <li><a href="#toc_109">6）实现双向链表（地狱模式）</a></li>
+    </ul>
+    </li>
+
+
 <li>
 <a href="#toc_326">课程总结</a>
 </li>
@@ -2799,7 +2832,9 @@ console.log(is_leagl_brackets(&quot;()()sd()(sd()fw))(&quot;));
 示例：</p>
 
 <pre><code class="language-text">[&quot;4&quot;, &quot;13&quot;, &quot;5&quot;, &quot;/&quot;, &quot;+&quot;] 等价于(4 + (13 / 5)) = 6
-[&quot;10&quot;, &quot;6&quot;, &quot;9&quot;, &quot;3&quot;, &quot;+&quot;, &quot;-11&quot;, &quot;*&quot;, &quot;/&quot;, &quot;*&quot;, &quot;17&quot;, &quot;+&quot;, &quot;5&quot;, &quot;+&quot;] 等价于((10 * (6 / ((9 + 3) * -11))) + 17) + 5
+
+[&quot;10&quot;, &quot;6&quot;, &quot;9&quot;, &quot;3&quot;, &quot;+&quot;, &quot;-11&quot;, &quot;*&quot;, &quot;/&quot;, &quot;*&quot;, &quot;17&quot;, &quot;+&quot;, &quot;5&quot;, &quot;+&quot;] 等价于
+((10 * (6 / ((9 + 3) * -11))) + 17) + 5
 </code></pre>
 
 <p>请编写函数calc_exp(exp) 实现逆波兰表达式计算，exp的类型是数组。</p>
@@ -7743,7 +7778,7 @@ function reverse_print(head){
 reverse_print(node1);
 </code></pre>
 
-<h4 id="toc_102">4.3 合并两个两个有序链表(困难模式)</h4>
+<h4 id="toc_102">4.3 合并两个有序链表(困难模式)</h4>
 
 <h5 id="toc_103">4.3.1 题目要求</h5>
 
@@ -60515,7 +60550,294 @@ for(var i=0;i&lt;points.length;i++){
 <li><p>在讲hashtable和二叉树的时候，均留了作业题实现字典这种数据结构，其实实现集合(set)的方式和实现字典是一样的，你可以把集合的理解成一种key-key形式的数据结构，那么就可以参照key-value形式的数据结构进行操作</p></li>
 <li><p>实践是检验真理的唯一标准，本课程不同于其他课程，非常注重实践，如果只是听懂了，理解了，仍然不算掌握，或者说，对你自身能力的提高非常有限，只有实际动手去写，去面对一个有一个具体的问题，才能有所提高。</p></li>
 </ul>
+<h5 id="toc_901">1. 栈的方法</h5>
+<ul>
+<li>push  添加一个元素到栈顶（向桶里放入一个羽毛球）</li>
+<li>pop   弹出栈顶元素（从桶里拿出一个羽毛球）</li>
+<li>top   返回栈顶元素，注意，不是弹出（看一眼桶里最顶端的羽毛球，但是不拿）</li>
+<li>isEmpty  判断栈是否为空（看看羽毛球是不是都用完了）</li>
+<li>size  返回栈里元素的个数（数一下桶里还有多少羽毛球）</li>
+<li>clear 清空栈（把桶里的羽毛球都倒出来扔掉）</li>
+</ul>
+<pre>
+<code class="language-javascript">
+function Stack() {
+    var items = []
+    
+    // 入栈
+    this.push = function(item) {
+        items.push(item)
+    }
 
+    // 出栈
+    this.pop = function() {
+        return items.pop()
+    }
+
+    // 返回栈顶元素
+    this.top = function() {
+        return items[items.length - 1]
+    }
+
+    // 判空
+    this.isEmpty = function() {
+        return items.length === 0
+    }
+
+    // 返回栈元素个数
+    this.size = function() {
+        return items.length
+    }
+
+    // 清空栈
+    this.clear = function() {
+        items = []
+    }
+}
+</code>
+</pre>
+<h5 id="toc_902">2. 队列的方法</h5>
+<ul>
+<li>enqueue  从队列尾部添加一个元素（新来一个排队的人，文明礼貌，站在了队伍末尾）</li>
+<li>dequeue  从队列头部删除一个元素（排队伍最前面的人刚办理完登机手续，离开了队伍）</li>
+<li>head 返回头部的元素，注意，不是删除（只是看一下，谁排在最前面）</li>
+<li>size  返回队列大小（数一数有多少人在排队）</li>
+<li>clear 清空队列（航班取消，大家都散了吧）</li>
+<li>isEmpty 判断队列是否为空 （看看是不是有人在排队）</li>
+<li>tail 返回队列尾节点</li>
+</ul>
+<pre>
+<code class="language-javascript">
+function Queue = function() {
+    var items = []
+    
+    // 添加元素
+    this.enqueue = function(item) {
+        items.push(item)
+    }
+
+    // 删除元素
+    this.dequeue = function() {
+        return items.shift()
+    }
+
+    // 返回头部元素
+    this.head = function() {
+        return items[0]
+    }
+
+    // 返回队列大小
+    this.size = function() {
+        return items.length
+    }
+
+    // 清空队列
+    this.clear = function() {
+        items = []
+    }
+
+    // 判空
+    this.isEmpty = function() {
+        return items.length === 0
+    }
+
+    // 返回队列尾节点
+    this.tail = function() {
+        return items[items.length - 1]
+    }
+}
+</code>
+</pre>
+<h5 id="toc_903">3. 链表的方法</h5>
+<ul>
+<li>append， 添加一个新的元素</li>
+<li>insert，在指定位置插入一个元素</li>
+<li>remove，删除指定位置的节点</li>
+<li>remove_head，删除首节点</li>
+<li>remove_tail，删除尾节点</li>
+<li>indexOf，返回指定元素的索引</li>
+<li>get，返回指定索引位置的元素</li>
+<li>head，返回首节点</li>
+<li>tail，返回尾节点</li>
+<li>length，返回链表长度</li>
+<li>isEmpty，判断链表是否为空</li>
+<li>clear，清空链表</li>
+<li>print，打印整个链表</li>
+</ul>
+<pre><code class="language-javascript">
+function LinkList() {
+    // 定义节点
+    var Node = function(data) {
+        this.data = data
+        this.next = null
+    }
+    var length = 0 // 长度
+    var head = null // 头节点
+    var tail = null // 尾节点
+    
+    // 添加一个新的节点，返回布尔值
+    this.append = function(data) {
+        var new_node = new Node(data)
+        if (head === null) {
+        head = new_node
+        tail = new_node
+        } else {
+        tail.next = new_node
+        tail = new_node
+        }
+        length += 1
+        return true
+    }
+    
+    // 打印整个链表
+    this.print = function() {
+        var curr_node = head
+        while(curr_node) {
+        console.log(curr_node.data);
+        curr_node = curr_node.next
+        }
+    }
+    
+    // 在指定位置插入一个元素, 返回布尔值
+    this.insert = function(index, data) {
+        var new_node = new Node(data)
+        
+        // 插入的位置不合法
+        if (index < 0 || index > length) {
+        return false
+        } else if (index === 0) {
+        // 在链表头部插入
+        new_node.next = head
+        head = new_node
+        } else if (index === length) {
+        // 在链表尾部插入
+        return this.append(data)
+        } else {
+        // 在链表中间插入
+        var inset_index = 1
+        var curr_node = head
+        while(inset_index < index) {
+            curr_node = curr_node.next
+            inset_index += 1
+        }
+        var next_node = curr_node.next
+        new_node.next = next_node      
+        curr_node.next = new_node
+        }
+        length += 1
+        return true
+    }
+    
+    // 删除指定位置的节点, 返回被删除的节点
+    this.remove = function(index) {
+        var del_node = null
+        var del_index = 0
+        var pre_node = null // 要找到被删除节点的前一个节点
+        var curr_node = head 
+    
+        // 删除节点的位置不合法
+        if (index < 0 || index > length) {
+        return false
+        } 
+        // 删除链表的第一个节点
+        if (index === 0) {      
+        del_node = head
+        head = head.next
+        } else {
+        while(del_index < index) {
+            pre_node = curr_node
+            curr_node = curr_node.next 
+            del_index += 1
+        }
+        del_node = curr_node
+        pre_node.next = curr_node.next // 被删除节点的前一个节点指向被删除节点的后一个节点
+    
+        // 如果删除的是尾节点
+        if (curr_node.next === null) {
+            pre_node.next = null
+            tail = pre_node
+        }
+        }
+    
+        length -= 1
+        del_node.next = null
+        return del_node
+    }
+    
+    // 获取指定位置的节点，返回该节点
+    this.get = function(index) {
+        // 获取节点的位置不合法
+        if (index < 0 || index > length) {
+        return false
+        }
+        var curr_node = null
+        var curr_index = 0
+        curr_node = head
+        while(curr_index < index) {
+        curr_node = curr_node.next
+        curr_index += 1
+        }
+        return curr_node.data
+    } 
+    
+    // 返回指定元素所在的位置，如果链表没有，返回-1
+    this.indexOf = function(data) {
+        var curr_node = head
+        var index = -1
+        while(curr_node) {
+        index += 1
+        if (curr_node.data === data) {
+            return index
+        } else {
+            curr_node = curr_node.next
+        }
+        }
+        return -1
+    }
+    
+    // 清楚链表
+    this.clear = function() {
+        length = 0
+        head = null
+        tail = null
+    }
+    
+    // 返回尾节点
+    this.tail = function () {
+        return this.get(length - 1)
+    }
+    
+    // 判断链表是否为空
+    this.isEmpty = function() {
+        return length === 0
+    }
+    
+    // 删除尾部节点
+    this.remove_tail = function() {
+        return this.remove(length - 1)
+    }
+    
+    // 删除头部节点
+    this.remove_head = function() {
+        return this.remove(0)
+    }
+    
+    // 返回链表头节点的值
+    this.head = function() {
+        return head.data
+    }
+    
+    // 返回链表尾节点的值
+    this.tail = function() {
+        return tail.data
+    }
+    
+    // 返回链表大小
+    this.length = function() {
+        return length
+    }
+}
+</code></pre>
 </div>
 <script>
     var lis = document.querySelectorAll('#muli>ul>li');
